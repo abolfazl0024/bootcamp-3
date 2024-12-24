@@ -1,0 +1,38 @@
+<app-header [backgroundcolor]="color" [selectedcolor]="headercolor!.value"> </app-header>
+<div class="container">
+    <div class="row text-center text-danger">
+        <p>از سمت چپ رنگ خود را انتخاب کنید در صورتی که رنگ مورد نظر را پیدا نکردید لطفا کد رنگ خود را طبق الگوی مشخص شده وارد نمایید  
+            در صورت استفاده از الگوی سمت راست ،الگوی سمت چپ غیر فعال میشود 
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+                <section>
+                    <label for="color">رنگ مورد نظر را انتخاب  کنید </label><br>
+                    <input type="color" name="color" [(ngModel)]="color" id="color">
+                    <p>الگوی هگزادسیمال</p>
+                    <p>{{color}}</p>
+                </section>
+           
+        </div>
+        <div class="col-sm-6">
+            <form action="">
+            <section>
+                <label for="color">  رنگ مورد نظر را طبق الگو  وارد کنید</label><br> 
+                <input type="text" name="color" [formControl]="headercolor" id="color"  placeholder="rgb(255, 255, 255)">
+                <div *ngIf="headercolor.errors?.['nospace'] && headercolor.touched" class="error bg-danger-subtle">
+                    <p>در صورت نیاز کد  رنگ را وارد نمایید  </p>
+                </div>
+                <div *ngIf="  headercolor.errors?.['pattern']  " class="error bg-danger-subtle">
+                    <p >الگوی ورودی اشتباه  می باشد </p>
+                </div>
+                @if(this.headercolor.valid){
+                    <p class="bg-success-subtle">الگوی وارد شده صحیح می باشد </p>
+                }
+                
+            </section>
+            <!-- <button class="btn btn-info mt-3" (click)="onsubmit()" >submit</button> -->
+        </form>
+        </div>
+    </div>
+</div>
