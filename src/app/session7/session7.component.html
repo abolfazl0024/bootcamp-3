@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form action="" [formGroup]="form" (ngSubmit)="addgender()">
+        <section>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstname"
+            placeholder="firstname"
+          />
+          <select formControlName="gender">
+            <option value="men">men</option>
+            <option value="women">women</option>
+          </select>
+        </section>
+
+        <button type="submit">submit</button>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+          <th>ردیف</th>
+          <th>جنسیت</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of person">
+            <td>{{ item.firstname }}</td>
+            <td>
+              {{ item.gender }} @if(item.gender=="women"){<span>
+                <i class="fa fa-female" style="font-size: 24px"></i> </span
+              >} @else if(item.gender=="men") {
+              <span>
+                <i class="fa fa-male" style="font-size: 24px"></i>
+              </span>
+              }
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
