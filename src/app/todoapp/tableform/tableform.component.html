@@ -1,0 +1,53 @@
+<!-- <p>tableform works!</p> -->
+<div class="container mt-4">
+  <div class="row">
+    <table class="table table-striped border border-success" dir="rtl">
+      <thead>
+        <th class="col-1">ردیف</th>
+        <th class="col-1">تسک</th>
+        <th class="col-1">الویت</th>
+        <th class="col-1">تاریخ</th>
+        <th class="col-3">توضیحات</th>
+        <th class="col-1">وضعیت</th>
+        <th class="col-1">حذف</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tasklist; let i = index">
+          <td>{{ i + 1 }}</td>
+
+          @if(item.priority==='low' ){
+          <td class="bg-success-subtle" [ngStyle]="toggle(i)">
+            <span>{{ item.task }}</span>
+          </td>
+          <td class="bg-success-subtle" [ngStyle]="toggle(i)">
+            {{ item.priority }}
+          </td>
+          }@else if (item.priority==='medium') {
+
+          <td class="bg-warning-subtle" [ngStyle]="toggle(i)">
+            {{ item.task }}
+          </td>
+          <td class="bg-warning-subtle" [ngStyle]="toggle(i)">
+            {{ item.priority }}
+          </td>
+          }@else if (item.priority==='high') {
+
+          <td class="bg-danger-subtle" [ngStyle]="toggle(i)">
+            {{ item.task }}
+          </td>
+          <td class="bg-danger-subtle" [ngStyle]="toggle(i)">
+            {{ item.priority }}
+          </td>
+          }
+
+          <td>{{ item.date }}</td>
+          <td>{{ item.description }}</td>
+          <td><input type="checkbox" (change)="changetoggle(i)" /></td>
+          <td>
+            <button class="btn btn-danger" (click)="delettask(i)">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center" dir="rtl">
+    <form action="" [formGroup]="task" (ngSubmit)="submittask()" class="border border-info rounded col-md-8">
+      <div class="col-md-12 d-flex justify-content-between p-3">
+        <p>لیست تسک روزانه</p>
+        <div class="d-flex justify-content-between col-md-2 ">
+<p>تاریخ:</p>
+          <p>{{currentdate}}</p>
+        </div>
+        
+      </div>
+      <div class="row">
+        <section class="col-md-6">
+          <label for="task"> تسک روزانه</label>
+          <input
+            type="text"
+            class="form-control mt-2"
+            formControlName="task"
+            id="task"
+          />
+    
+        </section>
+        <section class="mt-2 col-md-6">
+          <label for="priority">الویت تسک</label>
+          <select
+            name="priority"
+            id="priority"
+            formControlName="priority"
+            class="d-block"
+          >
+            <option value="high">بالا</option>
+            <option value="medium">متوسط</option>
+            <option value="low">پایین</option>
+          </select>
+        </section>
+
+        <section class="col-md-6">
+          <label for="description"> توضیحات </label>
+          <textarea
+            class="form-control mt-2"
+            id="description"
+            rows="5"
+            formControlName="description"
+            placeholder="توضیحات خود را بنویسید"
+          ></textarea>
+        </section>
+      </div>
+      <button class="btn btn-success mt-4 mb-3" type="submit"  [disabled]="task.invalid">ثبت اطلاعات</button>
+    </form>
+  </div>
+</div>
