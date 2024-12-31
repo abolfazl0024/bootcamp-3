@@ -1,0 +1,54 @@
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">ویرایش تسک</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" [formGroup]="taskedit" (ngSubmit)="submittask()" class="border border-info rounded col-md-8">
+            
+            <div class="row">
+              <section class="col-md-6">
+                <label for="task"> تسک روزانه</label>
+                <input
+                  type="text"
+                  class="form-control mt-2"
+                  formControlName="task"
+                  id="task"
+                />
+          
+              </section>
+              <section class="mt-2 col-md-6">
+                <label for="priority">الویت تسک</label>
+                <select
+                  name="priority"
+                  id="priority"
+                  formControlName="priority"
+                  class="d-block"
+                >
+                  <option value="high">بالا</option>
+                  <option value="medium">متوسط</option>
+                  <option value="low">پایین</option>
+                </select>
+              </section>
+      
+              <section class="col-md-6">
+                <label for="description"> توضیحات </label>
+                <textarea
+                  class="form-control mt-2"
+                  id="description"
+                  rows="5"
+                  formControlName="description"
+                  placeholder="توضیحات خود را بنویسید"
+                ></textarea>
+              </section>
+            </div>
+            <button class="btn btn-success mt-4 mb-3" type="submit"  [disabled]="taskedit.invalid">ثبت اطلاعات</button>
+          </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="submit" class="btn btn-primary" >ویرایش</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

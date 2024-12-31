@@ -10,6 +10,7 @@
         <th class="col-3">توضیحات</th>
         <th class="col-1">وضعیت</th>
         <th class="col-1">حذف</th>
+        <th class="col-1">ویرایش</th>
       </thead>
       <tbody>
         <tr *ngFor="let item of tasklist; let i = index">
@@ -45,9 +46,16 @@
           <td><input type="checkbox" (change)="changetoggle(i)" /></td>
           <td>
             <button class="btn btn-danger" (click)="delettask(i)">حذف</button>
-          </td>
+            <!-- <button class="btn btn-danger" (click)="edittask(i,item)">ویرایش</button> -->
+           
+        
+        </td>
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="sendindex(i)">
+            ویرایش
+          </button></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+<app-modalform></app-modalform>

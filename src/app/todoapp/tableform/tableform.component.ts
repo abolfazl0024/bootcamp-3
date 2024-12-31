@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TodoappService } from '../todoapp.service';
 import { CommonModule } from '@angular/common';
+import { ModalformComponent } from "../modalform/modalform.component";
 
 @Component({
   selector: 'app-tableform',
-  imports: [CommonModule],
+  imports: [CommonModule, ModalformComponent],
   templateUrl: './tableform.component.html',
   styleUrl: './tableform.component.css'
 })
@@ -25,5 +26,9 @@ changetoggle(index:number){
 }
 toggle(index:number){
   return {'text-decoration':this.tasklist[index].iscomplate ? 'line-through' : 'none'};
+}
+
+sendindex(index:number){
+  this.todo.sendindex.emit(index);
 }
 }
